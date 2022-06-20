@@ -19,7 +19,7 @@ class CompleteReport:
 
         companies_quantities = ""
         for company, quantity in companies.items():
-          companies_quantities += f"- {company}: {quantity}\n"
+            companies_quantities += f"- {company}: {quantity}\n"
 
         return (
             f"Data de fabricação mais antiga: {oldest_manuf_date}\n"
@@ -30,4 +30,4 @@ class CompleteReport:
         )
 
 
-#c.items(), to convert to a list of (elem, cnt) pairs
+# c.items(), to convert to a list of (elem, cnt) pairs
