@@ -42,7 +42,7 @@ class Inventory():
         if type == "simples":
             report = SimpleReport.generate(data)
             return report
-        if type == "completo":
+        else:
             report = CompleteReport.generate(data)
             return report
 
