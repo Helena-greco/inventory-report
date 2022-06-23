@@ -3,22 +3,30 @@ import json
 from inventory_report.reports.simple_report import SimpleReport
 from inventory_report.reports.complete_report import CompleteReport
 
+
 class Inventory():
     def csv_file(path):
-        report_list = []
+        report_file = []
         with open(path) as file:
             reports = csv.DictReader(file, delimiter=",", quotechar='"')
             for report in reports:
-                report_list.append(report)
+                report_file.append(report)
         file.close()
-        return report_list
+        return report_file
 
+    def json_file(path):
+        with open(path) as file:
+            report_file = json.load(file)
+        file.close()
+        return report_file
 
     @classmethod
     def import_data(cls, path, type):
         data = []
         if ".csv" in path:
             data = cls.csv_file(path)
+        if ".json" in path:
+            data = cls.json_file(path)
         if type == "simples":
             report = SimpleReport.generate(data)
             return report
